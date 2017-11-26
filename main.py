@@ -13,6 +13,7 @@ red = (255, 0, 0)
 white = (255,255,255)
 nothing = (0,0,0)
 pink = (255,105, 180)
+current = 0
 
 def grid_init():
     Y = yellow
@@ -30,20 +31,23 @@ def grid_init():
     ]
     return logo
 
-def grid_color(score=0):
-    X = red if score > 75 else yellow if score > 50 else blue if score > 25 else nothing
-    fill = [[X]*64][0]
+def grid_color(pos=0):
+    colors = [nothing, blue, yellow, red]
+    current = pos
+    fill = [[colors[current]]*64][0]
     return fill
 
 def grid_clear():
     s.set_pixels(grid_color(0))
 
 try:
-    s.set_pixels(grid_init())
+    s.set_pixels(grid_init(1))
     time.sleep(1)
 
     while True:
-        s.set_pixels(grid_color(randint(26, 100)))
+        event = sense.stick.wait_for_event()
+        print("The joystick was {} {}".format(event.action, event.direction))
+        s.set_pixels(grid_color(randint(0, 3)))
         time.sleep(5)
 
 except KeyboardInterrupt:
