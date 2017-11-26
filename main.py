@@ -1,18 +1,16 @@
-from sense_hat import SenseHat
-from random import randint
-import time
 import sys
+import time
+from random import randint
+from sense_hat import SenseHat
 
 s = SenseHat()
 s.low_light = True
-
 green = (0, 255, 0)
 yellow = (255, 255, 0)
 blue = (0, 0, 255)
 red = (255, 0, 0)
 white = (255,255,255)
 nothing = (0,0,0)
-pink = (255,105, 180)
 colors = [nothing, blue, yellow, red]
 max = len(colors) - 1
 current = 1
@@ -20,16 +18,16 @@ prev = 0
 off = 0
 
 def grid_init():
-    Y = yellow
+    W = white
     B = blue
     O = nothing
     logo = [
     O, O, O, O, O, O, O, O,
     O, O, O, O, O, O, O, O,
-    Y, Y, Y, B, O, O, O, B,
-    Y, O, Y, B, O, O, O, B,
-    Y, Y, Y, B, O, B, O, B,
-    Y, O, Y, B, B, O, B, B,
+    W, W, W, B, O, O, O, B,
+    W, O, W, B, O, O, O, B,
+    W, W, W, B, O, B, O, B,
+    W, O, W, B, B, O, B, B,
     O, O, O, O, O, O, O, O,
     O, O, O, O, O, O, O, O,
     ]
@@ -61,7 +59,6 @@ try:
             if event.action == 'released':
                 if event.direction == 'middle':
                     off ^= 1
-                    print off
                     grid_draw(grid_color(0 if off == 1 else prev))
                 elif off == 0:
                     current = current + 1 if event.direction == 'up' else current - 1
