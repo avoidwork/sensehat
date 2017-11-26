@@ -1,5 +1,5 @@
 [Unit]
-Description=Raspberry Pi/SenseHat Sentiment API
+Description=Raspberry Pi/SenseHat Status Indicator
 
 [Service]
 Type=simple
