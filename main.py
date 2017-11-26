@@ -14,7 +14,8 @@ white = (255,255,255)
 nothing = (0,0,0)
 pink = (255,105, 180)
 colors = [blue, yellow, red]
-current = len(colors) - 1
+max = len(colors) - 1
+current = max
 prev = 0
 off = 0
 
@@ -50,7 +51,7 @@ def grid_clear():
 try:
     grid_draw(grid_init())
     time.sleep(1)
-    grid_draw(grid_color(1))
+    grid_draw(grid_color(0))
 
     while True:
         for event in s.stick.get_events():
@@ -62,8 +63,8 @@ try:
                     current = current + 1 if event.direction == 'up' else current - 1
 
                     if current < 0:
-                        current = len(colors)
-                    elif current > (len(colors) - 1):
+                        current = max
+                    elif current > max:
                         current = 0
 
                 grid_draw(grid_color(current))
