@@ -46,7 +46,7 @@ try:
     s.set_pixels(grid_color(1))
 
     while True:
-        for event in sense.stick.get_events():
+        for event in s.stick.get_events():
             print("The joystick was {} {}".format(event.action, event.direction))
 
 except KeyboardInterrupt:
