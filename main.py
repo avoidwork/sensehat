@@ -40,8 +40,11 @@ def grid_draw(fill):
 
 def grid_color(pos=0):
     global current
-    global prev
-    prev = current
+
+    if off == 0:
+        global prev
+        prev = current
+
     current = pos
     return [[colors[current]]*64][0]
 
@@ -58,6 +61,7 @@ try:
             if event.action == 'released':
                 if event.direction == 'middle':
                     off ^= 1
+                    print off
                     grid_draw(grid_color(0 if off == 1 else prev))
                 elif off == 0:
                     current = current + 1 if event.direction == 'up' else current - 1
