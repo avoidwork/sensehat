@@ -31,19 +31,20 @@ def grid_init():
     return logo
 
 def grid_color(score=0):
-    c = red if score > 75 else yellow if score > 50 else blue if score > 25 else nothing
-    return [[c]*64][0]
+    X = red if score > 75 else yellow if score > 50 else blue if score > 25 else nothing
+    fill = [[X]*64][0]
+    return fill
 
 def grid_clear():
     s.set_pixels(grid_color(0))
 
 try:
     s.set_pixels(grid_init())
-    time.sleep(.75)
+    time.sleep(1)
 
     while True:
         s.set_pixels(grid_color(randint(26, 100)))
-        time.sleep(.75)
+        time.sleep(5)
 
 except KeyboardInterrupt:
     grid_clear()
