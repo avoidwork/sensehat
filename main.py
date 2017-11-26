@@ -55,13 +55,12 @@ try:
     while True:
         for event in s.stick.get_events():
             if event.action == 'released':
-                global off
-                global current
-
                 if event.direction == 'middle':
+                    global off
                     off ^= 1
                     grid_draw(grid_color(0 if off == 1 else prev))
                 elif off == false:
+                    global current
                     current = current + 1 if event.direction == 'up' else current - 1
 
                     if current < 0:
