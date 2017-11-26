@@ -42,7 +42,7 @@ try:
     time.sleep(.75)
 
     while True:
-        s.set_pixels(grid_color(randint(0, 100)))
+        s.set_pixels(grid_color(randint(26, 100)))
         time.sleep(.75)
 
 except KeyboardInterrupt:
