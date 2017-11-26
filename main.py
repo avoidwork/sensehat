@@ -15,7 +15,7 @@ nothing = (0,0,0)
 pink = (255,105, 180)
 colors = [nothing, blue, yellow, red]
 max = len(colors) - 1
-current = max
+current = 1
 prev = 0
 off = 0
 
