@@ -35,7 +35,7 @@ def grid_color(score=0):
     return [[c]*64][0]
 
 def grid_clear():
-    grid_color()
+    s.set_pixels(grid_color(0))
 
 s.set_pixels(grid_init())
 time.sleep(.75)
