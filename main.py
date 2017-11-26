@@ -3,8 +3,6 @@ from random import randint
 import time
 import sys
 
-global current, prev, off
-
 s = SenseHat()
 s.low_light = True
 
@@ -18,7 +16,7 @@ pink = (255,105, 180)
 colors = [nothing, blue, yellow, red]
 current = 0
 prev = 0
-off = False
+off = 0
 
 def grid_init():
     Y = yellow
@@ -40,10 +38,11 @@ def grid_draw(fill):
     s.set_pixels(fill)
 
 def grid_color(pos=0):
+    global current
+    global prev
     prev = current
     current = pos
-    fill = [[colors[current]]*64][0]
-    return fill
+    return [[colors[current]]*64][0]
 
 def grid_clear():
     grid_draw(grid_color(0))
@@ -57,8 +56,8 @@ try:
         for event in s.stick.get_events():
             if event.action == 'released':
                 if event.direction == 'middle':
-                    off = current == 0
-                    grid_draw(grid_color(0 if off else prev))
+                    off ^= 1
+                    grid_draw(grid_color(0 if off == 1 else prev))
                 elif off == false:
                     current = current + 1 if event.direction == 'up' else current - 1
 
