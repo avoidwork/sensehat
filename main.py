@@ -41,7 +41,7 @@ def grid_draw(fill):
 def grid_color(pos=0):
     global current
 
-    if off == 0:
+    if pos > 0:
         global prev
         prev = current
 
