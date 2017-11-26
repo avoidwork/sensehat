@@ -59,7 +59,7 @@ try:
                     global off
                     off ^= 1
                     grid_draw(grid_color(0 if off == 1 else prev))
-                elif off == false:
+                elif off == 0:
                     global current
                     current = current + 1 if event.direction == 'up' else current - 1
 
