@@ -13,8 +13,8 @@ red = (255, 0, 0)
 white = (255,255,255)
 nothing = (0,0,0)
 pink = (255,105, 180)
-colors = [nothing, blue, yellow, red]
-current = 0
+colors = [blue, yellow, red]
+current = len(colors) - 1
 prev = 0
 off = 0
 
