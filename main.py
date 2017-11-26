@@ -13,6 +13,7 @@ red = (255, 0, 0)
 white = (255,255,255)
 nothing = (0,0,0)
 pink = (255,105, 180)
+colors = [nothing, blue, yellow, red]
 current = 0
 
 def grid_init():
@@ -31,23 +32,33 @@ def grid_init():
     ]
     return logo
 
+def grid_draw(fill):
+    s.set_pixels(fill)
+
 def grid_color(pos=0):
-    colors = [nothing, blue, yellow, red]
     current = pos
     fill = [[colors[current]]*64][0]
     return fill
 
 def grid_clear():
-    s.set_pixels(grid_color(0))
+    grid_draw(grid_color(0))
 
 try:
-    s.set_pixels(grid_init())
+    grid_draw(grid_init())
     time.sleep(1)
-    s.set_pixels(grid_color(1))
+    grid_draw(grid_color(1))
 
     while True:
         for event in s.stick.get_events():
-            print("The joystick was {} {}".format(event.action, event.direction))
+            if event.action == 'released':
+                current = current + 1 if event.direction == 'up' else current - 1
+
+                if current < 0:
+                    current = len(colors)
+                elif current > len(colors):
+                    current = 0
+
+                grid_draw(grid_color(current))
 
 except KeyboardInterrupt:
     grid_clear()
