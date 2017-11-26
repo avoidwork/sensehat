@@ -3,6 +3,8 @@ from random import randint
 import time
 import sys
 
+global current, prev, off
+
 s = SenseHat()
 s.low_light = True
 
