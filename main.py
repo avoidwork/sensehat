@@ -1,7 +1,7 @@
 from sense_hat import SenseHat
 from random import randint
 import time
-import atexit
+import sys
 
 s = SenseHat()
 s.low_light = True
@@ -37,11 +37,13 @@ def grid_color(score=0):
 def grid_clear():
     s.set_pixels(grid_color(0))
 
-s.set_pixels(grid_init())
-time.sleep(.75)
-
-while True:
-    s.set_pixels(grid_color(randint(0, 100)))
+try:
+    s.set_pixels(grid_init())
     time.sleep(.75)
 
-atexit.register(grid_clear)
+    while True:
+        s.set_pixels(grid_color(randint(0, 100)))
+        time.sleep(.75)
+
+except KeyboardInterrupt:
+    grid_clear()
