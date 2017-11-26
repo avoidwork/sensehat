@@ -8,4 +8,4 @@ Use a raspberry pi + sensehat as a status indicator with 3 colors! Toggle state 
 
 ## Prerequisites
 1. `sudo apt-get install sense-hat`
-2. Knowledge of systemd to use the included `sensehat.service`
+2. Knowledge of `systemd` to use the included `sensehat.service`
