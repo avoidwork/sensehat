@@ -1,0 +1,16 @@
+[Unit]
+Description=Raspberry Pi/SenseHat Sentiment API
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /opt/sensehat/main.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=sensehat
+LimitNOFILE=64000
+LimitNPROC=32000
+User=www-data
+
+[Install]
+WantedBy=multi-user.target
