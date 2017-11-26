@@ -16,7 +16,7 @@ pink = (255,105, 180)
 colors = [nothing, blue, yellow, red]
 current = 0
 prev = 0
-off = false
+off = False
 
 def grid_init():
     Y = yellow
