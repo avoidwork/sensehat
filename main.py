@@ -45,10 +45,8 @@ try:
     time.sleep(1)
 
     while True:
-        event = sense.stick.wait_for_event()
-        print("The joystick was {} {}".format(event.action, event.direction))
-        s.set_pixels(grid_color(randint(0, 3)))
-        time.sleep(5)
+        for event in sense.stick.get_events():
+            print("The joystick was {} {}".format(event.action, event.direction))
 
 except KeyboardInterrupt:
     grid_clear()
