@@ -65,7 +65,7 @@ try:
 
                     if current < 0:
                         current = len(colors)
-                    elif current > len(colors):
+                    elif current > (len(colors) - 1):
                         current = 0
 
                 grid_draw(grid_color(current))
