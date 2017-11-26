@@ -41,8 +41,9 @@ def grid_clear():
     s.set_pixels(grid_color(0))
 
 try:
-    s.set_pixels(grid_init(1))
+    s.set_pixels(grid_init())
     time.sleep(1)
+    s.set_pixels(grid_color(1))
 
     while True:
         for event in sense.stick.get_events():
