@@ -64,13 +64,8 @@ try:
                     grid_draw(grid_color(0 if off == 1 else prev))
                 elif off == 0:
                     current = current + 1 if event.direction == 'up' else current - 1
-
-                    if current < 1:
-                        current = max
-                    elif current > max:
-                        current = 1
-
-                grid_draw(grid_color(current))
+                    current = max if current < 1 else 1 if current > max else current
+                    grid_draw(grid_color(current))
 
 except KeyboardInterrupt:
     grid_clear()
