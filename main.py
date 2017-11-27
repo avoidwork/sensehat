@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import sys
 import time
-from random import randint
 from sense_hat import SenseHat
 
 s = SenseHat()
