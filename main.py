@@ -28,7 +28,7 @@ def init():
         W, W, W, B, O, O, O, B,
         W, O, W, B, O, O, O, B,
         W, W, W, B, O, B, O, B,
-        W, O, W, B, B, O, B, B,
+        W, O, W, O, B, O, B, O,
         O, O, O, O, O, O, O, O,
         O, O, O, O, O, O, O, O,
     )
